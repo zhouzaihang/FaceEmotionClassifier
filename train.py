@@ -7,7 +7,8 @@ batch_siz = 128
 num_classes = 7
 nb_epoch = 100
 img_size = 48
-root_path = './data'
+data_path = './data'
+model_path = './model'
 
 
 class Model:
@@ -58,19 +59,19 @@ class Model:
             rescale=1. / 255)
         # 以文件分类名划分label
         train_generator = train_datagen.flow_from_directory(
-            root_path + '/train',
+            data_path + '/train',
             target_size=(img_size, img_size),
             color_mode='grayscale',
             batch_size=batch_siz,
             class_mode='categorical')
         val_generator = val_datagen.flow_from_directory(
-            root_path + '/val',
+            data_path + '/val',
             target_size=(img_size, img_size),
             color_mode='grayscale',
             batch_size=batch_siz,
             class_mode='categorical')
         eval_generator = eval_datagen.flow_from_directory(
-            root_path + '/test',
+            data_path + '/test',
             target_size=(img_size, img_size),
             color_mode='grayscale',
             batch_size=batch_siz,
@@ -90,20 +91,19 @@ class Model:
         history_predict = self.model.predict_generator(
             eval_generator,
             steps=2000)
-        with open(root_path + '/model_fit_log', 'w') as f:
+        with open(model_path + '/model_fit_log', 'w') as f:
             f.write(str(history_fit.history))
-        with open(root_path + '/model_predict_log', 'w') as f:
+        with open(model_path + '/model_predict_log', 'w') as f:
             f.write(str(history_predict))
         #         print("%s: %.2f%%" % (self.model.metrics_names[1], history_eval[1] * 100))
         print('model trained')
 
     def save_model(self):
         model_json = self.model.to_json()
-        with open(root_path + "/model_json.json", "w") as json_file:
+        with open(model_path + "/model_json.json", "w") as json_file:
             json_file.write(model_json)
-        self.model.save_weights(root_path + '/model_weight.h5')
-        self.model.save(root_path + '/model.h5')
-        print('model saved')
+        self.model.save_weights(model_path + '/model_weight.h5')
+        self.model.save(model_path + '/model.h5')
 
 
 if __name__ == '__main__':
