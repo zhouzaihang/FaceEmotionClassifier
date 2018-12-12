@@ -95,8 +95,6 @@ class Model:
             f.write(str(history_fit.history))
         with open(model_path + '/model_predict_log', 'w') as f:
             f.write(str(history_predict))
-        #         print("%s: %.2f%%" % (self.model.metrics_names[1], history_eval[1] * 100))
-        print('model trained')
 
     def save_model(self):
         model_json = self.model.to_json()
