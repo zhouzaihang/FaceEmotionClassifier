@@ -31,7 +31,7 @@ def face2emoji(face, emotion_index, position):
     face_part = (face[y:y + h, x:x + w]/255.0) * background
     overlay_part = overlay_img * overlay_bg
 
-    face[y:y + h, x:x + w] = (cv2.addWeighted(face_part, 255.0, overlay_part, 255.0, 0.0))
+    face[y:y + h, x:x + w] = cv2.addWeighted(face_part, 255.0, overlay_part, 255.0, 0.0)
 
     return face
 
@@ -81,8 +81,8 @@ while True:
             # 框出脸部并且写上标签
             cv2.rectangle(frame, (x - 20, y - 20), (x + w + 20, y + h + 20),
                           (0, 255, 255), thickness=10)
-            cv2.putText(frame, '%s' % emotion, (x, y - 30),
-                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 4)
+            cv2.putText(frame, '%s' % emotion, (x, y - 50),
+                        cv2.FONT_HERSHEY_DUPLEX, 2, (255, 255, 255), 2, 30)
             cv2.imshow('Face', frame)
 
         if cv2.waitKey(60) == ord('q'):
