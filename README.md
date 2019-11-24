@@ -8,13 +8,19 @@
 
 ![avatar](image/happyface.png)
 
-- 通过opencv-python识别出人脸
+- 通过 `opencv-python` 识别出人脸
 
-- 然后用fer2013的数据集训练深度卷积神经网络构建的模型识别人脸表情
+- 然后用 `fer2013` 的数据集训练深度卷积神经网络构建的模型识别人脸表情
 
 - 使用训练好的模型识别人脸的表情情绪
 
-- 根据识别结果，匹配合适的emoji遮住人脸
+- 根据识别结果，匹配合适的 `emoji` 遮住人脸
+
+## 项目环境
+
+基于 python 3.5.6, opencv-python==4.1.2.30, tensorflow-gpu==1.13.1
+
+详细的环境配置参见 [environment.yaml](environment.yaml)
 
 ## 数据集介绍
 
