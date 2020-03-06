@@ -18,7 +18,7 @@
 
 ## 项目环境
 
-基于 python 3.5.6, opencv-python==4.1.2.30, tensorflow-gpu==1.13.1
+基于 python 3.5.6, opencv-python==4.1.2.30, tensorflow-gpu==1.13.1, keras
 
 详细的环境配置参见 [environment.yaml](environment.yaml)
 
