@@ -2,7 +2,7 @@
 
 用Keras做前端，tensorflow做后端训练模型识别人类的情绪。根据情绪选择相应的emoji匹配 
 
-[博客地址](https://www.zhzh.xyz/2018/12/13/emotionclassify/)
+[博客地址](https://zhzh.xyz/2018/12/13/MachineLearning/emotionclassify/)
 
 ## 项目简介
 
